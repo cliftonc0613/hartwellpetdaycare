@@ -1,0 +1,55 @@
+{
+  "_name": "Hartwell Pet Daycare & Boarding",
+  "_type": "Service Business",
+  "_lastUpdated": "2026-02-10",
+  "_instructions": "Fill in your business overview, positioning, offerings, target audience, and operations details. This guides all content and messaging decisions.",
+
+  "overview": {
+    "missionStatement": "TO BE FILLED: What is your core mission?",
+    "visionStatement": "TO BE FILLED: Where do you want to be in 3-5 years?",
+    "tagline": "TO BE FILLED: Your memorable one-liner (e.g., 'For active playful dogs and pets')"
+  },
+
+  "positioning": {
+    "uniqueValue": "TO BE FILLED: What makes your service unique?",
+    "differentiators": [
+      "TO BE FILLED: Differentiator 1",
+      "TO BE FILLED: Differentiator 2",
+      "TO BE FILLED: Differentiator 3"
+    ],
+    "targetMarket": "TO BE FILLED: Who is your ideal client?",
+    "marketPosition": "TO BE FILLED: How do you position against competitors?"
+  },
+
+  "offerings": {
+    "primaryServices": [
+      {
+        "name": "TO BE FILLED: Service 1",
+        "description": "TO BE FILLED: Description",
+        "pricing": "TO BE FILLED: Pricing model"
+      }
+    ],
+    "additionalServices": [
+      "TO BE FILLED: Add-on 1",
+      "TO BE FILLED: Add-on 2"
+    ]
+  },
+
+  "operations": {
+    "serviceArea": "TO BE FILLED: Geographic coverage",
+    "hours": "TO BE FILLED: Operating hours",
+    "capacity": "TO BE FILLED: Max pets per day",
+    "staffing": "TO BE FILLED: Team structure",
+    "facilities": "TO BE FILLED: Physical location details"
+  },
+
+  "marketingChannels": [
+    "TO BE FILLED: Channel 1",
+    "TO BE FILLED: Channel 2"
+  ],
+
+  "_metadata": {
+    "priority": "HIGH",
+    "nextReview": "2026-03-10"
+  }
+}

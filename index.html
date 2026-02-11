@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartwell Pet Daycare - Professional Pet Grooming & Boarding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#F97316',
+                        'primary-light': '#FB923C',
+                        'cta': '#2563EB',
+                        'bg-soft': '#FFF7ED',
+                        'text-warm': '#9A3412',
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        nunito: ['Nunito', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f5f0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /* Premium Navigation */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 14px 28px;
+            box-shadow: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 32px;
+            align-items: center;
+            flex: 1;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-shrink: 0;
+        }
+
+        .phone-info {
+            display: none;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        @media (min-width: 768px) {
+            .phone-info {
+                display: flex;
+            }
+        }
+
+        .phone-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        .phone-number {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            color: white;
+            font-size: 15px;
+        }
+
+        .btn-book {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 14px 32px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.25);
+            flex-shrink: 0;
+        }
+
+        .btn-book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(249, 115, 22, 0.35);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            border-radius: 28px;
+            overflow: visible;
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            margin: 40px 20px 80px 20px;
+        }
+
+        .hero-images {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 28px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 28px;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 100%);
+            border-radius: 28px;
+        }
+
+        .hero-content {
+            position: absolute;
+            z-index: 10;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 50%;
+        }
+
+        @media (min-width: 768px) {
+            .hero-content {
+                left: 80px;
+                width: 45%;
+            }
+        }
+
+        .hero-badge {
+            display: none;
+        }
+
+        .hero-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 52px;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 64px;
+            }
+        }
+
+        .hero-title-highlight {
+            color: #F97316;
+            display: block;
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 420px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-appointment {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 16px 40px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.35);
+        }
+
+        .btn-appointment:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(249, 115, 22, 0.45);
+        }
+
+        .btn-services {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            padding: 14px 40px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-services:hover {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Navigation Arrows */
+        .hero-arrows {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 20;
+            display: flex;
+            gap: 12px;
+        }
+
+        .arrow-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .arrow-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .arrow-btn .material-icons {
+            font-size: 20px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-section {
+                flex-direction: column;
+                bottom: -80px;
+            }
+        }
+
+        .reviews-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f8f5f0;
+            padding: 20px 28px;
+            border-radius: 24px;
+            box-shadow: none;
+            flex-shrink: 0;
+        }
+
+        .reviewer-avatars {
+            display: flex;
+            margin-right: 4px;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-left: -14px;
+            flex-shrink: 0;
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+        }
+
+        .review-text {
+            font-size: 13px;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .review-rating {
+            color: #FF8C00;
+            font-weight: 700;
+        }
+
+        /* Circular Scroll Badge */
+        .circular-badge {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: rgba(30, 30, 30, 0.92);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(12px);
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        @media (min-width: 1024px) {
+            .circular-badge {
+                margin-left: 110px;
+            }
+        }
+
+        .circular-badge:hover {
+            transform: scale(1.08);
+        }
+
+        .scroll-ring {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            animation: spin-slow 8s linear infinite;
+        }
+
+        .scroll-ring-progress {
+            animation: dash-pulse 3s ease-in-out infinite;
+        }
+
+        .scroll-badge-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            z-index: 2;
+        }
+
+        .scroll-paw {
+            font-size: 32px !important;
+            color: #F97316;
+            animation: bounce-gentle 2s ease-in-out infinite;
+        }
+
+        .scroll-label {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes dash-pulse {
+            0%, 100% { stroke-dasharray: 110 330; opacity: 0.8; }
+            50% { stroke-dasharray: 220 220; opacity: 1; }
+        }
+
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(4px); }
+        }
+
+        /* Stats Cards */
+        .stats-cards {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            background: #f8f5f0;
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .stat-card {
+            padding: 28px 24px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: none;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #F97316;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* Claymorphic Cards */
+        .claymorphic-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .claymorphic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonial-stars {
+            color: #FBBF24;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(249, 115, 22, 0.08);
+            color: #9A3412;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 16px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Our Story Section */
+        .our-story-section {
+            background: #f8f5f0;
+            padding: 100px 40px;
+        }
+
+        @media (min-width: 768px) {
+            .our-story-section {
+                padding: 100px 80px;
+            }
+        }
+
+        .our-story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .our-story-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .our-story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #9A3412;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 24px;
+            background: rgba(249, 115, 22, 0.08);
+            padding: 12px 24px;
+            border-radius: 40px;
+        }
+
+        .our-story-heading {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .our-story-heading {
+                font-size: 46px;
+            }
+        }
+
+        .our-story-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .our-story-checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 40px;
+            margin-bottom: 40px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .checklist-icon {
+            color: #F97316;
+            font-size: 22px !important;
+        }
+
+        .our-story-actions {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .our-story-btn {
+            background: #F97316;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 16px 36px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+
+        .our-story-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(249, 115, 22, 0.4);
+        }
+
+        .our-story-phone {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .our-story-phone-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .our-story-phone-label {
+            font-size: 13px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .our-story-phone-number {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            color: #1a1a1a;
+            font-size: 17px;
+        }
+
+        /* Image Collage */
+        .our-story-right {
+            position: relative;
+        }
+
+        .our-story-images {
+            position: relative;
+            width: 100%;
+            height: 550px;
+        }
+
+        @media (min-width: 768px) {
+            .our-story-images {
+                height: 600px;
+            }
+        }
+
+        .story-img {
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 13px solid #f8f5f0;
+        }
+
+        .story-img-inner {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 13px;
+        }
+
+        .story-img-main {
+            top: 0;
+            left: 0;
+            width: 62%;
+            height: 58%;
+            z-index: 2;
+        }
+
+        .story-img-small {
+            top: 15%;
+            right: 0;
+            width: 45%;
+            height: 45%;
+            z-index: 3;
+        }
+
+        .story-img-bottom {
+            bottom: 0;
+            left: 10%;
+            width: 75%;
+            height: 48%;
+            z-index: 1;
+        }
+
+        .story-stats-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #F97316;
+            color: white;
+            padding: 20px 28px;
+            border-radius: 16px;
+            z-index: 10;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+        }
+
+        .story-stats-number {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .story-stats-label {
+            font-size: 15px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: #f8f5f0;
+            padding: 100px 40px;
+        }
+
+        @media (min-width: 768px) {
+            .faq-section {
+                padding: 100px 80px;
+            }
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .faq-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #9A3412;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 16px;
+            background: rgba(249, 115, 22, 0.08);
+            padding: 12px 24px;
+            border-radius: 40px;
+        }
+
+        .faq-heading {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1.1;
+            margin-bottom: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .faq-heading {
+                font-size: 52px;
+            }
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 28px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: 'Nunito', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: left;
+            gap: 20px;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-num {
+            color: #F97316;
+            margin-right: 12px;
+            font-weight: 700;
+        }
+
+        .faq-icon {
+            font-size: 24px !important;
+            color: #333;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 28px;
+        }
+
+        .faq-answer.open {
+            max-height: 200px;
+            padding: 0 28px 24px;
+        }
+
+        .faq-answer p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Sticky Scroll Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: #1a1a1a;
+            padding: 0 40px;
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-nav.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-nav .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 14px 0;
+        }
+
+        .sticky-nav .logo {
+            color: white;
+        }
+
+        .sticky-nav .nav-menu a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .sticky-nav .nav-menu a:hover {
+            color: white;
+        }
+
+        .sticky-nav .phone-label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .sticky-nav .phone-number {
+            color: white;
+        }
+
+        .sticky-nav .btn-book {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: none;
+            padding: 10px 28px;
+            border-radius: 8px;
+        }
+
+        .sticky-nav .btn-book:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: none;
+        }
+
+        .sticky-nav .phone-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #F97316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sticky-nav .phone-icon .material-icons {
+            color: white;
+            font-size: 20px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css">
+</head>
+<body>
+    <!-- Sticky Scroll Navigation (appears after 200px scroll) -->
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="navbar-content">
+            <a href="#" class="logo">
+                <img src="images/hartwell-pet-daycare-logo-white.png" alt="Hartwell Pet Daycare" style="height: 60px;">
+            </a>
+            <div class="nav-menu">
+                <a href="#services">Services</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <div class="nav-right">
+                <div class="phone-icon">
+                    <span class="material-icons">phone</span>
+                </div>
+                <div class="phone-info">
+                    <span class="phone-label">Call us:</span>
+                    <span class="phone-number">(555) 123-4567</span>
+                </div>
+                <button class="btn-book">Book Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Navigation Integrated -->
+    <section class="hero">
+        <!-- Navigation (inside hero) -->
+        <nav class="navbar">
+            <div class="navbar-content">
+                <a href="#" class="logo">
+                    <img src="images/hartwell-pet-daycare-logo-white.png" alt="Hartwell Pet Daycare" style="height: 60px;">
+                </a>
+                <div class="nav-menu">
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                <div class="nav-right">
+                    <div class="phone-info">
+                        <span class="phone-label">Call us:</span>
+                        <span class="phone-number">(555) 123-4567</span>
+                    </div>
+                    <button class="btn-book">Book Now</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Background Images -->
+        <div class="hero-images">
+            <img src="images/premium_photo-1661676172038-377ab3d82a18.avif" alt="Happy person with groomed pet" class="hero-image">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">
+                The Best Pets<br>
+                <span class="hero-title-highlight">Grooming Session</span>
+            </h1>
+            <p class="hero-description">
+                We blend professional grooming with compassionate care to deliver clean, stylish results your pet will love.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-appointment">Make an Appointment</button>
+                <button class="btn-services">Browse all Services</button>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="hero-arrows">
+            <button class="arrow-btn arrow-left">
+                <span class="material-icons">chevron_left</span>
+            </button>
+            <button class="arrow-btn arrow-right">
+                <span class="material-icons">chevron_right</span>
+            </button>
+        </div>
+
+        <!-- Stats Section at Bottom (extends below hero) -->
+        <div class="stats-section">
+            <div class="reviews-group">
+                <div class="reviewer-avatars">
+                    <div class="avatar" style="background: linear-gradient(135deg, #FF6B9D, #FB923C);"></div>
+                    <div class="avatar" style="background: linear-gradient(135deg, #C06C84, #F97316);"></div>
+                    <div class="avatar" style="background: linear-gradient(135deg, #6C567B, #FB923C);"></div>
+                </div>
+                <div class="review-text">
+                    <span class="review-rating">
+                        <span class="material-icons" style="font-size: 14px; vertical-align: middle; margin-right: 2px;">star</span>
+                        4.9 reviews
+                    </span><br>
+                    <span>based on 150k+ Feedbacks</span>
+                </div>
+            </div>
+
+            <div class="circular-badge scroll-badge" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                <svg class="scroll-ring" viewBox="0 0 160 160">
+                    <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(249,115,22,0.3)" stroke-width="2" stroke-dasharray="4 6"/>
+                    <circle class="scroll-ring-progress" cx="80" cy="80" r="70" fill="none" stroke="#F97316" stroke-width="2.5" stroke-dasharray="110 330" stroke-linecap="round"/>
+                </svg>
+                <div class="scroll-badge-inner">
+                    <span class="material-icons scroll-paw">pets</span>
+                    <span class="scroll-label">Explore</span>
+                </div>
+            </div>
+
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number">262+</div>
+                    <div class="stat-label">Pampered Pets</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Positive reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story-section">
+        <div class="our-story-container">
+            <!-- Left Content -->
+            <div class="our-story-left">
+                <div class="our-story-label">
+                    <span class="material-icons" style="font-size: 18px; color: #9A3412;">pets</span>
+                    <span>Our Story</span>
+                </div>
+
+                <h2 class="our-story-heading">
+                    We are a fully committed to your pet's well-being
+                </h2>
+
+                <p class="our-story-description">
+                    For over 12 years, we've been dedicated to making pets look fabulous and feel loved. Because to us, your pet isn't just a client – they're family.
+                </p>
+
+                <div class="our-story-checklist">
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Skilled personnel</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Best Veterinarians</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Nutrition and Diet</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Quality Foods</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Grooming Tips</span>
+                    </div>
+                    <div class="checklist-item">
+                        <span class="material-icons checklist-icon">check_box</span>
+                        <span>Emergency Care</span>
+                    </div>
+                </div>
+
+                <div class="our-story-actions">
+                    <button class="our-story-btn">Learn More</button>
+                    <div class="our-story-phone">
+                        <div class="our-story-phone-icon">
+                            <span class="material-icons" style="font-size: 22px; color: #333;">phone</span>
+                        </div>
+                        <div>
+                            <div class="our-story-phone-label">Call us:</div>
+                            <div class="our-story-phone-number">(555) 123-4567</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Image Collage -->
+            <div class="our-story-right">
+                <div class="our-story-images">
+                    <!-- Main large image (top left) -->
+                    <div class="story-img story-img-main">
+                        <img src="images/photo-1559190394-df5a28aab5c5.avif" alt="Happy golden retriever" class="story-img-inner">
+                    </div>
+                    <!-- Small image (top right, overlapping) -->
+                    <div class="story-img story-img-small">
+                        <img src="images/photo-1563460716037-460a3ad24ba9.avif" alt="Cute kitten" class="story-img-inner">
+                    </div>
+                    <!-- Bottom large image -->
+                    <div class="story-img story-img-bottom">
+                        <img src="images/photo-1604848698030-c434ba08ece1.avif" alt="Cat and dog together" class="story-img-inner">
+                    </div>
+                    <!-- Stats badge -->
+                    <div class="story-stats-badge">
+                        <div class="story-stats-number">2500+</div>
+                        <div class="story-stats-label">Happy Paws</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-4 md:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="service-badge" style="margin-left: auto; margin-right: auto;">
+                    <span class="material-icons" style="font-size: 18px; color: #9A3412;">spa</span>
+                    Our Services
+                </div>
+                <h2 class="font-fredoka text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Service Packages
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Choose the perfect package for your furry friend
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Package -->
+                <div class="claymorphic-card cursor-pointer overflow-hidden">
+                    <div class="h-48 mb-6 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
+                        <img src="images/photo-1601758177266-bc599de87707.avif" alt="Basic wash service" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mb-6">
+                        <span class="material-icons" style="font-size: 48px; color: #F97316;">local_laundry_service</span>
+                        <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-2 mt-4">Basic Wash</h3>
+                        <p class="text-gray-600 text-sm">Perfect for regular maintenance</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="font-fredoka text-3xl font-bold text-primary mb-2">$45</div>
+                        <p class="text-sm text-gray-600">per visit</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-700">
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Full body wash</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Nail trimming</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Ear cleaning</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>2-hour service</span>
+                        </li>
+                    </ul>
+                    <button class="w-full px-6 py-3 rounded-xl border-2 border-primary text-primary font-fredoka font-semibold transition-all hover:bg-primary hover:text-white">Select Package</button>
+                </div>
+
+                <!-- Premium Package (Featured) -->
+                <div class="claymorphic-card cursor-pointer relative md:scale-105 origin-center overflow-hidden">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                        <span class="bg-primary text-white px-4 py-1 rounded-full font-fredoka font-bold text-sm">Most Popular</span>
+                    </div>
+                    <div class="h-48 mb-6 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
+                        <img src="images/photo-1604848698030-c434ba08ece1.avif" alt="Premium groom service" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mb-6 pt-6">
+                        <span class="material-icons" style="font-size: 48px; color: #F97316;">brush</span>
+                        <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-2 mt-4">Premium Groom</h3>
+                        <p class="text-gray-600 text-sm">Full grooming experience</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="font-fredoka text-3xl font-bold text-primary mb-2">$89</div>
+                        <p class="text-sm text-gray-600">per visit</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-700">
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Everything in Basic</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Professional haircut</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Paw pad care</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>4-hour service</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Cologne & touch-up</span>
+                        </li>
+                    </ul>
+                    <button class="w-full px-6 py-3 rounded-xl bg-primary text-white font-fredoka font-semibold transition-all hover:shadow-lg hover:scale-105">Select Package</button>
+                </div>
+
+                <!-- Daycare Package -->
+                <div class="claymorphic-card cursor-pointer overflow-hidden">
+                    <div class="h-48 mb-6 -mx-8 -mt-8 mb-6 rounded-t-2xl overflow-hidden">
+                        <img src="images/photo-1623387641168-d9803ddd3f35.avif" alt="Daycare service" class="w-full h-full object-cover">
+                    </div>
+                    <div class="mb-6">
+                        <span class="material-icons" style="font-size: 48px; color: #F97316;">sports_basketball</span>
+                        <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-2 mt-4">Daycare</h3>
+                        <p class="text-gray-600 text-sm">Fun while you're away</p>
+                    </div>
+                    <div class="mb-6">
+                        <div class="font-fredoka text-3xl font-bold text-primary mb-2">$35</div>
+                        <p class="text-sm text-gray-600">per day</p>
+                    </div>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-700">
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Play & socialization</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Meals included</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Activity updates</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="material-icons text-primary" style="font-size: 20px;">check_circle</span>
+                            <span>Open 7am-7pm</span>
+                        </li>
+                    </ul>
+                    <button class="w-full px-6 py-3 rounded-xl border-2 border-primary text-primary font-fredoka font-semibold transition-all hover:bg-primary hover:text-white">Select Package</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 px-4 md:px-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="service-badge" style="margin-left: auto; margin-right: auto;">
+                    <span class="material-icons" style="font-size: 18px; color: #9A3412;">photo_library</span>
+                    Pet Gallery
+                </div>
+                <h2 class="font-fredoka text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Happy Customers
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See the transformation and joy our grooming brings to pets
+                </p>
+            </div>
+
+            <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 1 -->
+                <a href="images/image-1.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image-1.jpg" alt="Happy groomed pet" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 2 -->
+                <a href="images/image-2.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image-2.jpg" alt="Pet grooming care" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 3 -->
+                <a href="images/image-3.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image-3.jpg" alt="Professional pet care" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 4 -->
+                <a href="images/image-1366x1066.jpg" data-pswp-width="1366" data-pswp-height="1066" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image-1366x1066.jpg" alt="Pet daycare" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 5 -->
+                <a href="images/image-911x683.jpg" data-pswp-width="911" data-pswp-height="683" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image-911x683.jpg" alt="Happy pet owner" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 6 -->
+                <a href="images/image.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/image.jpg" alt="Pet grooming services" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 7 -->
+                <a href="images/photo-1450778869180-41d0601e046e.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/photo-1450778869180-41d0601e046e.avif" alt="Professional grooming" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 8 -->
+                <a href="images/photo-1525253013412-55c1a69a5738.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/photo-1525253013412-55c1a69a5738.avif" alt="Happy pet" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 9 -->
+                <a href="images/photo-1559190394-df5a28aab5c5.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer">
+                    <img src="images/photo-1559190394-df5a28aab5c5.avif" alt="Pet care services" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 10 (hidden) -->
+                <a href="images/photo-1563460716037-460a3ad24ba9.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/photo-1563460716037-460a3ad24ba9.avif" alt="Grooming transformation" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 11 -->
+                <a href="images/photo-1601758177266-bc599de87707.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/photo-1601758177266-bc599de87707.avif" alt="Pet daycare fun" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 12 -->
+                <a href="images/photo-1604848698030-c434ba08ece1.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/photo-1604848698030-c434ba08ece1.avif" alt="Professional care" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 13 -->
+                <a href="images/photo-1623387641168-d9803ddd3f35.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/photo-1623387641168-d9803ddd3f35.avif" alt="Pet grooming" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 14 -->
+                <a href="images/premium_photo-1661676172038-377ab3d82a18.avif" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/premium_photo-1661676172038-377ab3d82a18.avif" alt="Premium pet care" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 15 -->
+                <a href="images/458949398_122166755672161274_357474280736375920_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/458949398_122166755672161274_357474280736375920_n.jpg" alt="Hartwell pet at daycare" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 16 -->
+                <a href="images/486694214_122199410102161274_4156686609748710956_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/486694214_122199410102161274_4156686609748710956_n.jpg" alt="Happy pet playing" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 17 -->
+                <a href="images/488204733_10127776002425301_3055706168682377930_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/488204733_10127776002425301_3055706168682377930_n.jpg" alt="Pet boarding fun" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 18 -->
+                <a href="images/490158520_122199217100161274_3952409245288319256_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/490158520_122199217100161274_3952409245288319256_n.jpg" alt="Pet enjoying daycare" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 19 -->
+                <a href="images/492503829_122202126908161274_991310637921448311_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/492503829_122202126908161274_991310637921448311_n.jpg" alt="Groomed pet smiling" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 20 -->
+                <a href="images/492606094_122202126914161274_5082993590575887289_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/492606094_122202126914161274_5082993590575887289_n.jpg" alt="Pet care moment" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 21 -->
+                <a href="images/494372321_122202916910161274_1656330667048699061_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/494372321_122202916910161274_1656330667048699061_n.jpg" alt="Happy dog at Hartwell" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 22 -->
+                <a href="images/500705407_17911961490128708_736556084952761405_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/500705407_17911961490128708_736556084952761405_n.jpg" alt="Pet grooming session" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 23 -->
+                <a href="images/501067864_17911961517128708_7294535946806527348_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/501067864_17911961517128708_7294535946806527348_n.jpg" alt="Dog enjoying playtime" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 24 -->
+                <a href="images/501595244_17911961478128708_3403250772843228153_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/501595244_17911961478128708_3403250772843228153_n.jpg" alt="Pet daycare activities" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 25 -->
+                <a href="images/504072819_17913249291128708_4153455629701301731_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/504072819_17913249291128708_4153455629701301731_n.jpg" alt="Furry friend at Hartwell" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 26 -->
+                <a href="images/504349491_17913249315128708_6666458631149488024_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/504349491_17913249315128708_6666458631149488024_n.jpg" alt="Pet bonding time" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 27 -->
+                <a href="images/504701294_17913249282128708_1048253387165404394_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/504701294_17913249282128708_1048253387165404394_n.jpg" alt="Happy pet portrait" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 28 -->
+                <a href="images/539904707_122220060836161274_1682241437903873454_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/539904707_122220060836161274_1682241437903873454_n.jpg" alt="Pet care love" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 29 -->
+                <a href="images/573903029_17930501208128708_5312353400330847812_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/573903029_17930501208128708_5312353400330847812_n.jpg" alt="Doggy daycare fun" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 30 -->
+                <a href="images/575911183_17930501190128708_4516075026825632605_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/575911183_17930501190128708_4516075026825632605_n.jpg" alt="Pet socializing" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 31 -->
+                <a href="images/579945757_17930501187128708_4222973414514710983_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/579945757_17930501187128708_4222973414514710983_n.jpg" alt="Playful pet moment" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 32 -->
+                <a href="images/581232541_17931296310128708_4279770820203534540_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/581232541_17931296310128708_4279770820203534540_n.jpg" alt="Pet at Hartwell daycare" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 33 -->
+                <a href="images/581484919_17931296274128708_5526184493240798578_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/581484919_17931296274128708_5526184493240798578_n.jpg" alt="Dog grooming results" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 34 -->
+                <a href="images/581678116_17931296295128708_2409389196271563881_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/581678116_17931296295128708_2409389196271563881_n.jpg" alt="Happy tail wags" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 35 -->
+                <a href="images/582999481_17931296283128708_6937816647850717700_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/582999481_17931296283128708_6937816647850717700_n.jpg" alt="Pet boarding experience" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 36 -->
+                <a href="images/587725856_17932221618128708_3764540411437017187_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/587725856_17932221618128708_3764540411437017187_n.jpg" alt="Furry friend playtime" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 37 -->
+                <a href="images/587730247_17932221573128708_1039117560030021635_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/587730247_17932221573128708_1039117560030021635_n.jpg" alt="Pet care excellence" class="w-full h-full object-cover" loading="lazy">
+                </a>
+                <!-- 38 -->
+                <a href="images/590419326_17932221582128708_3137259287898265340_n.jpg" data-pswp-width="1200" data-pswp-height="800" class="gallery-item gallery-hidden rounded-2xl overflow-hidden h-80 shadow-lg transition-transform hover:scale-105 block cursor-pointer" style="display:none">
+                    <img src="images/590419326_17932221582128708_3137259287898265340_n.jpg" alt="Hartwell pet family" class="w-full h-full object-cover" loading="lazy">
+                </a>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="loadMoreBtn" onclick="loadMoreGallery()" class="inline-flex items-center gap-2 px-8 py-3 rounded-full font-fredoka font-semibold text-lg transition-all hover:shadow-lg" style="background: rgba(249, 115, 22, 0.08); color: #9A3412; border: 2px solid rgba(249, 115, 22, 0.2);">
+                    <span class="material-icons" style="font-size: 20px;">expand_more</span>
+                    Load More Photos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="py-24 px-4 md:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="service-badge" style="margin-left: auto; margin-right: auto;">
+                    <span class="material-icons" style="font-size: 18px; color: #9A3412;">compare</span>
+                    Transformations
+                </div>
+                <h2 class="font-fredoka text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    Before & After
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    See the amazing transformations our grooming brings to every pet
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Transformation 1 -->
+                <div class="claymorphic-card">
+                    <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-6">Max's Makeover</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">Before</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/image-1.jpg" alt="Before grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">After</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/photo-1450778869180-41d0601e046e.avif" alt="After grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Golden Retriever • Professional haircut + Full bath</p>
+                </div>
+
+                <!-- Transformation 2 -->
+                <div class="claymorphic-card">
+                    <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-6">Luna's Spa Day</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">Before</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/image-2.jpg" alt="Before grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">After</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/photo-1525253013412-55c1a69a5738.avif" alt="After grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Poodle Mix • Premium groom with styling</p>
+                </div>
+
+                <!-- Transformation 3 -->
+                <div class="claymorphic-card">
+                    <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-6">Rocky's Refresh</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">Before</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/image-3.jpg" alt="Before grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">After</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/photo-1559190394-df5a28aab5c5.avif" alt="After grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Husky • Summer cut + Bath & blow-dry</p>
+                </div>
+
+                <!-- Transformation 4 -->
+                <div class="claymorphic-card">
+                    <h3 class="font-fredoka text-2xl font-bold text-gray-900 mb-6">Bella's Beauty</h3>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">Before</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/image-1366x1066.jpg" alt="Before grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-2">After</p>
+                            <div class="rounded-xl overflow-hidden h-48 shadow-lg">
+                                <img src="images/photo-1563460716037-460a3ad24ba9.avif" alt="After grooming" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">Shih Tzu • Full groom with styling & cologne</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="py-24 px-4 md:px-8 bg-white">
+        <div class="max-w-2xl mx-auto">
+            <div class="claymorphic-card">
+                <div class="text-center mb-8">
+                    <h2 class="font-fredoka text-4xl font-bold text-gray-900 mb-4">
+                        Quick Booking
+                    </h2>
+                    <p class="text-gray-600">Schedule your pet's next appointment in minutes</p>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-fredoka font-semibold text-gray-900 mb-2">Your Name</label>
+                            <input type="text" placeholder="Sarah Johnson"
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors"
+                                   required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-fredoka font-semibold text-gray-900 mb-2">Pet Name</label>
+                            <input type="text" placeholder="Max"
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-fredoka font-semibold text-gray-900 mb-2">Phone Number</label>
+                            <input type="tel" placeholder="(555) 123-4567"
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors"
+                                   required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-fredoka font-semibold text-gray-900 mb-2">Preferred Date</label>
+                            <input type="date"
+                                   class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-fredoka font-semibold text-gray-900 mb-2">Service Type</label>
+                        <select class="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-primary focus:outline-none transition-colors">
+                            <option>Select a service...</option>
+                            <option>Basic Wash - $45</option>
+                            <option>Premium Groom - $89</option>
+                            <option>Daycare - $35/day</option>
+                            <option>Boarding Package - $299/week</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-book w-full">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 px-4 md:px-8 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <div class="service-badge" style="margin-left: auto; margin-right: auto;">
+                    <span class="material-icons" style="font-size: 18px; color: #9A3412;">star_rate</span>
+                    Testimonials
+                </div>
+                <h2 class="font-fredoka text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    What Pet Owners Say
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Join hundreds of happy pet parents who trust us with their furry friends
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Hartwell transformed my anxious pup into the happiest dog ever! The team is so caring and professional. Max can't wait for his grooming days now!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-300 to-orange-400 flex items-center justify-center text-white font-bold">
+                            SJ
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">Sarah Johnson</p>
+                            <p class="text-sm text-gray-600">Golden Retriever Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "I tried 5 different groomers before finding Hartwell. The attention to detail is incredible, and they handle my senior cat with such gentleness!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-300 to-pink-400 flex items-center justify-center text-white font-bold">
+                            ML
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">Michelle Lee</p>
+                            <p class="text-sm text-gray-600">Cat Lover</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "The daycare saved my life during my work week. Bella comes home tired, happy, and well-cared for. Worth every penny!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-300 to-blue-400 flex items-center justify-center text-white font-bold">
+                            DM
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">David Martinez</p>
+                            <p class="text-sm text-gray-600">Labrador Dad</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "My nervous rescue dog has blossomed! The team's patience and expertise made all the difference. Now she's confident and happy!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-300 to-green-400 flex items-center justify-center text-white font-bold">
+                            EW
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">Emma Wilson</p>
+                            <p class="text-sm text-gray-600">Rescue Dog Advocate</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Professional, friendly, and genuinely love animals. They even sent me updates with photos during grooming. Highly recommend!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-300 to-purple-400 flex items-center justify-center text-white font-bold">
+                            JT
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">James Thompson</p>
+                            <p class="text-sm text-gray-600">Poodle Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars mb-4">★★★★★</div>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        "Best value for the quality of service. My dog's coat has never looked better. The team truly cares about each pet's wellbeing!"
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-amber-300 to-amber-400 flex items-center justify-center text-white font-bold">
+                            RS
+                        </div>
+                        <div>
+                            <p class="font-fredoka font-semibold text-gray-900">Rachel Smith</p>
+                            <p class="text-sm text-gray-600">Shih Tzu Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="faq-label">
+                <span class="material-icons" style="font-size: 18px; color: #9A3412;">pets</span>
+                <span>quick answers</span>
+            </div>
+            <h2 class="faq-heading">Frequently Ask Questions</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="faq-num">1.</span> How often should I take my pet to the vet?</span>
+                        <span class="material-icons faq-icon">add</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We recommend annual wellness exams for adult pets. Puppies and kittens need more frequent visits during their first year, typically every 3-4 weeks until they're about 16 weeks old. Senior pets (7+ years) benefit from twice-yearly checkups.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="faq-num">2.</span> How can I book an appointment for emergency treatment?</span>
+                        <span class="material-icons faq-icon">add</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>For emergencies, call us directly at (555) 123-4567. We prioritize emergency cases and will do our best to accommodate your pet as quickly as possible during business hours. For after-hours emergencies, we can refer you to our partner emergency clinic.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="faq-num">3.</span> How often should I bathe my pet?</span>
+                        <span class="material-icons faq-icon">add</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most dogs benefit from a bath every 4-6 weeks, though this varies by breed and activity level. Cats generally groom themselves, but may need occasional baths. Over-bathing can strip natural oils from your pet's coat, so we recommend consulting with our groomers for a personalized schedule.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="faq-num">4.</span> What should I do if my pet eats something toxic?</span>
+                        <span class="material-icons faq-icon">add</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Contact us or your nearest emergency vet immediately. Do not try to induce vomiting unless directed by a veterinarian. Keep the packaging of whatever your pet consumed so the vet can determine the best course of treatment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span><span class="faq-num">5.</span> Is it normal for pets to be anxious or fearful?</span>
+                        <span class="material-icons faq-icon">add</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, anxiety in pets is quite common and can be triggered by separation, loud noises, or new environments. Our team is specially trained to handle anxious pets with patience and care. We use calming techniques and create a stress-free environment during every visit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-4 md:px-8 bg-gradient-to-r from-primary to-primary-light">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-fredoka text-4xl lg:text-5xl font-bold text-white mb-6">
+                Ready to Pamper Your Pet?
+            </h2>
+            <p class="text-xl text-white/90 mb-8">
+                Join hundreds of happy pet families. Book your first appointment today and get 15% off!
+            </p>
+            <button class="bg-white text-primary font-fredoka font-bold text-lg px-8 py-4 rounded-full cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-200">
+                Book Now - Limited Time Offer
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16 px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="images/hartwell-pet-daycare-logo-white.png" alt="Hartwell Pet Daycare" style="height: 90px;">
+                    </div>
+                    <p class="text-gray-400 text-sm">Professional pet care with a personal touch</p>
+                </div>
+                <div>
+                    <h4 class="font-fredoka font-bold mb-4 text-white">Services</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#services" class="hover:text-white transition">Grooming</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Daycare</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Boarding</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-fredoka font-bold mb-4 text-white">Contact</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="tel:5551234567" class="hover:text-white transition">(555) 123-4567</a></li>
+                        <li><a href="mailto:info@hartwell.pet" class="hover:text-white transition">info@hartwell.pet</a></li>
+                        <li>123 Pet Lane, City, ST 12345</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-fredoka font-bold mb-4 text-white">Hours</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Mon-Fri: 7am - 7pm</li>
+                        <li>Sat: 8am - 6pm</li>
+                        <li>Sun: 10am - 4pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 Hartwell Pet Daycare & Boarding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const icon = btn.querySelector('.faq-icon');
+
+            answer.classList.toggle('open');
+            icon.textContent = answer.classList.contains('open') ? 'remove' : 'add';
+        }
+
+        // Sticky Navigation on Scroll
+        const stickyNav = document.getElementById('stickyNav');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.scrollY;
+
+            if (currentScroll > 200) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Gallery Load More
+        function loadMoreGallery() {
+            const hidden = document.querySelectorAll('.gallery-hidden');
+            let count = 0;
+            for (const item of hidden) {
+                if (count >= 6) break;
+                item.style.display = '';
+                item.classList.remove('gallery-hidden');
+                count++;
+            }
+            if (document.querySelectorAll('.gallery-hidden').length === 0) {
+                document.getElementById('loadMoreBtn').style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- PhotoSwipe -->
+    <script type="module">
+        import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js';
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: '#gallery-grid',
+            children: 'a.gallery-item',
+            pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js'),
+        });
+        lightbox.init();
+    </script>
+</body>
+</html>

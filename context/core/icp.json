@@ -1,0 +1,99 @@
+{
+  "_name": "Ideal Client Profile - Hartwell Pet Daycare",
+  "_type": "Customer Avatar",
+  "_lastUpdated": "2026-02-10",
+  "_instructions": "Define your ideal client personas with demographics, psychographics, pain points, goals, and buying signals. This guides marketing, product, and service decisions.",
+
+  "primaryPersona": {
+    "name": "TO BE FILLED: Client Avatar Name (e.g., 'Active Pet Parent Sarah')",
+    "tagline": "TO BE FILLED: One-line description",
+
+    "demographics": {
+      "age": "TO BE FILLED: Age range",
+      "income": "TO BE FILLED: Income level",
+      "location": "TO BE FILLED: Geographic location",
+      "familyStatus": "TO BE FILLED: Family situation (e.g., young professional, family with kids)",
+      "occupation": "TO BE FILLED: Primary job types"
+    },
+
+    "psychographics": {
+      "lifestyle": "TO BE FILLED: How do they live? (e.g., active, busy, social)",
+      "values": [
+        "TO BE FILLED: Value 1",
+        "TO BE FILLED: Value 2"
+      ],
+      "interests": [
+        "TO BE FILLED: Interest 1",
+        "TO BE FILLED: Interest 2"
+      ]
+    },
+
+    "painPoints": [
+      "TO BE FILLED: Pain point 1 (e.g., 'Worried about pet safety while at work')",
+      "TO BE FILLED: Pain point 2",
+      "TO BE FILLED: Pain point 3"
+    ],
+
+    "goals": [
+      "TO BE FILLED: Goal 1 (e.g., 'Find reliable daycare for active dog')",
+      "TO BE FILLED: Goal 2",
+      "TO BE FILLED: Goal 3"
+    ],
+
+    "budget": {
+      "range": "TO BE FILLED: Price range they'll pay",
+      "constraints": "TO BE FILLED: Budget limitations",
+      "investmentJustification": "TO BE FILLED: How they justify the expense"
+    },
+
+    "decisionMaking": {
+      "influencers": "TO BE FILLED: Who influences their decision?",
+      "criteria": [
+        "TO BE FILLED: Decision criteria 1",
+        "TO BE FILLED: Decision criteria 2"
+      ],
+      "timeline": "TO BE FILLED: How long is their decision process?",
+      "riskAversion": "TO BE FILLED: How risk-averse are they?"
+    },
+
+    "preferences": {
+      "communicationChannels": [
+        "TO BE FILLED: Channel 1",
+        "TO BE FILLED: Channel 2"
+      ],
+      "contentTypes": [
+        "TO BE FILLED: Content type 1",
+        "TO BE FILLED: Content type 2"
+      ],
+      "purchaseMethod": "TO BE FILLED: How do they prefer to book?"
+    },
+
+    "buyingSignals": [
+      "TO BE FILLED: Signal 1 (e.g., 'Searching for pet daycare near me')",
+      "TO BE FILLED: Signal 2",
+      "TO BE FILLED: Signal 3"
+    ]
+  },
+
+  "secondaryPersonas": [
+    {
+      "name": "TO BE FILLED: Secondary Persona Name",
+      "keyDifferences": "TO BE FILLED: How do they differ from primary persona?",
+      "targetPriority": "MEDIUM"
+    }
+  ],
+
+  "notIdeal": {
+    "description": "TO BE FILLED: What types of customers are NOT a good fit?",
+    "reasons": [
+      "TO BE FILLED: Reason 1",
+      "TO BE FILLED: Reason 2"
+    ]
+  },
+
+  "_metadata": {
+    "priority": "HIGH",
+    "nextReview": "2026-03-10",
+    "lastResearched": "2026-02-10"
+  }
+}

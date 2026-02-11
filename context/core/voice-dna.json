@@ -1,0 +1,63 @@
+{
+  "_name": "Hartwell Pet Daycare Brand Voice",
+  "_type": "Voice & Tone Guidelines",
+  "_lastUpdated": "2026-02-10",
+  "_instructions": "Define your brand's communication style, personality, core values, and storytelling approach. This ensures consistent messaging across all channels.",
+
+  "brandPersonality": {
+    "primaryTraits": [
+      "TO BE FILLED: Trait 1 (e.g., Friendly, Professional, Playful)",
+      "TO BE FILLED: Trait 2",
+      "TO BE FILLED: Trait 3"
+    ],
+    "tone": "TO BE FILLED: How do you speak? (e.g., warm, professional, casual, authoritative)",
+    "voiceDescription": "TO BE FILLED: Describe your brand voice in 2-3 sentences"
+  },
+
+  "coreValues": [
+    {
+      "value": "TO BE FILLED: Value 1 (e.g., Pet Safety)",
+      "description": "TO BE FILLED: Why this matters to your brand"
+    },
+    {
+      "value": "TO BE FILLED: Value 2",
+      "description": "TO BE FILLED: Why this matters to your brand"
+    }
+  ],
+
+  "storytelling": {
+    "brandStory": "TO BE FILLED: Your origin story or founding narrative",
+    "heroJourney": "TO BE FILLED: How do your clients transform through your service?",
+    "emotionalConnections": [
+      "TO BE FILLED: Connection 1 (e.g., Pet owners want peace of mind)",
+      "TO BE FILLED: Connection 2"
+    ]
+  },
+
+  "languagePatterns": {
+    "doSay": [
+      "TO BE FILLED: Example of what you say",
+      "TO BE FILLED: Another example"
+    ],
+    "dontSay": [
+      "TO BE FILLED: Example of what you avoid",
+      "TO BE FILLED: Another example"
+    ],
+    "keyWords": [
+      "TO BE FILLED: Keyword 1",
+      "TO BE FILLED: Keyword 2",
+      "TO BE FILLED: Keyword 3"
+    ]
+  },
+
+  "audienceConnection": {
+    "howWeListenToAudience": "TO BE FILLED: How do you gather feedback?",
+    "howWeRespond": "TO BE FILLED: How do you respond to inquiries?",
+    "buildingTrust": "TO BE FILLED: How do you build trust with pet owners?"
+  },
+
+  "_metadata": {
+    "priority": "HIGH",
+    "nextReview": "2026-03-10"
+  }
+}
